@@ -1,0 +1,21 @@
+<h2 class="title_tj">
+    <p>文章<span>推荐</span></p>
+</h2>
+<div class="bloglist left">
+    {{range $k, $v := .list}}
+        <!-- post里没有Link，取时报错，可以加2个方法来取这些内容 -->
+        <!-- Link  ColorTitle  -->
+        <h3><a href="{{$v.Link}}"  target="_blank">{{str2html $v.ColorTitle}}</a></h3>
+        <figure><a href="{{$v.Link}}"><img src="{{$v.Cover}}"></a></figure>
+        <ul>
+            <!-- Link  Excerpt  -->
+            <p>{{str2html $v.Excerpt}}</p>
+            <a title="阅读全文" href="{{$v.Link}}" target="_blank" class="readmore">阅读全文>></a>
+        </ul>
+        <!-- TagsLink  -->
+        <p class="lifedateview"><span>{{date $v.Posttime "Y-m-j"}}</span><span>作者：{{$v.Author}}</span><span>所属分类：[{{str2html $v.TagsLink}}]</span></p>
+    {{end}}
+    <!-- 分页字符串，以str2html进行解析 -->
+    <!-- pagebar  -->
+    {{str2html .pagebar}}
+</div>

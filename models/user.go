@@ -13,6 +13,7 @@ type User struct {
 	Logincount int
 	//加密后的password，cookie会使用
 	Authkey string
+	//用户是否激活
 	Active int
 }
 

@@ -35,8 +35,8 @@ func init() {
 
 	//友链
 	beego.Router("/admin/link/list", &admin.LinkController{}, "*:List")
-	//beego.Router("/admin/link/add", &admin.LinkController{}, "*:Add")
-	//beego.Router("/admin/link/edit", &admin.LinkController{}, "*:Edit")
+	beego.Router("/admin/link/add", &admin.LinkController{}, "*:Add")
+	beego.Router("/admin/link/edit", &admin.LinkController{}, "*:Edit")
 	//beego.Router("/admin/link/delete", &admin.LinkController{}, "*:Delete")
 
 	//user

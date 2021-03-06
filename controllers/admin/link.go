@@ -71,6 +71,16 @@ func (c *LinkController) Edit() {
 }
 
 //// 删除
-//func (c *LinkController) Delete() {
-//
-//}
+func (c *LinkController) Delete() {
+	getInt, err := c.GetInt("id")
+	if err != nil{
+		c.showmsg("不存在链接")
+	}
+	link := &models.Link{Id: getInt}
+	if err = link.Read(); err == nil{
+		if err = link.Delete();err != nil{
+			c.showmsg("删除失败!")
+		}
+		c.Redirect("/admin/link/list", 302)
+	}
+}
